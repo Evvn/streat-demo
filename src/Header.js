@@ -61,7 +61,7 @@ class Header extends React.Component {
 
   render() {
 
-    let name = this.props.name
+    // let name = this.props.name
     let hamburgerClass = "hamburger hamburger--collapse"
     // let sections = this.props.sections
 
@@ -76,7 +76,8 @@ class Header extends React.Component {
           <h1
             className={ this.state.menuOpen ? 'venue hidden'  : 'venue' }
             >
-              { name }
+              {/* { name } */}
+              <img src="/cromwell_st_logo.png" alt="Cromwell St"/>
           </h1>
 
           <div className="placeholder"></div>
@@ -94,6 +95,8 @@ class Header extends React.Component {
         { this.state.menuOpen ?
           <div className="linksWrapper">
             <ul className="links">
+
+              <li><img src="/cromwell_st_white.png" alt="Cromwell St"/></li>
 
               { this.sections() }
 

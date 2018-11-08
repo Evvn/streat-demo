@@ -123,6 +123,11 @@ header {
   transition: 0.4s ease-in-out all;
 }
 
+h1 img {
+  height: 30px;
+  margin-top: 5px;
+}
+
 .menuOpen {
   margin-top: 0;
   transform-origin: top;
@@ -169,8 +174,9 @@ header {
   letter-spacing: 0.5px;
 }
 .links li img {
-  height: 75px;
+  width: 65vw;
   margin: 20px 0;
+  padding-bottom: 15px;
 }
 
 @-webkit-keyframes fadeIn {
