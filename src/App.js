@@ -85,7 +85,7 @@ class App extends Component {
               price: "17.0",
               tags: "VV",
               image: "/STREAT/8.jpg",
-              description: "of grilled asparagus, sesame eggplant, tofu & shiitake croquette and bio-dynamic brown rice. Add miso saSTREATn (+7), add 63° egg (+2.5)"
+              description: "of grilled asparagus, sesame eggplant, tofu & shiitake croquette and bio-dynamic brown rice. Add miso salmon (+7), add 63° egg (+2.5)"
             },
             {
               id: "9",
