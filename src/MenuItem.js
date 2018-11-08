@@ -62,6 +62,17 @@ class MenuItem extends React.Component {
     }
   }
 
+  trimName(n) {
+    let name = n
+
+    if ( name.length > 30) {
+      name = name.substring(0,30).trim() + "..."
+      return name
+    } else {
+      return name
+    }
+  }
+
   onSwipeRight() {
     document.body.querySelector('.previewModal').classList.remove('slideInRight')
     document.body.querySelector('.previewModal').classList.add('slideOutRight')
@@ -86,6 +97,7 @@ class MenuItem extends React.Component {
 
     let id = this.props.id
     let name = this.props.name
+    let trimmedName = this.trimName(name)
     let price = this.props.price
     let tags = this.props.tags
     let image = this.props.image
@@ -114,7 +126,7 @@ class MenuItem extends React.Component {
             </div>
 
             <div className="rightBox" id={ id }>
-              <h3 className="title" id={ id }>{ name }</h3>
+              <h3 className="title" id={ id }>{ trimmedName }</h3>
 
               <p className="bodyText" id={ id }>{ trimmedDescription }</p>
 
@@ -161,7 +173,7 @@ class MenuItem extends React.Component {
             </div>
 
             <div className="leftBox" id={ id }>
-              <h3 className="title" id={ id }>{ name }</h3>
+              <h3 className="title" id={ id }>{ trimmedName }</h3>
 
               <p className="bodyText" id={ id }>{ trimmedDescription }</p>
 
