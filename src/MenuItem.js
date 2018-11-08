@@ -105,7 +105,8 @@ class MenuItem extends React.Component {
     let trimmedDescription = this.trimDescription(description)
     let style = {
       backgroundImage: 'url(' + image + ')',
-      backgroundSize: 'cover'
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
     }
 
     return(
