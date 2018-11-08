@@ -66,7 +66,7 @@ class MenuItem extends React.Component {
     let name = n
 
     if ( name.length > 30) {
-      name = name.substring(0,30).trim() + "..."
+      name = name.substring(0,31).trim() + "..."
       return name
     } else {
       return name
