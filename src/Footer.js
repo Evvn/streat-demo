@@ -69,7 +69,8 @@ class Footer extends React.Component {
 
         </div> */}
 
-        <footer>©Copyright  Mr Yum 2018</footer>
+        {/* <footer>©Copyright  Mr Yum 2018</footer> */}
+        <footer>Hope you enjoyed our new photo menu!</footer>
       </div>
     )
   }
