@@ -1,0 +1,522 @@
+// sass variables
+$red: #000;
+$sectionColor: #373737;
+$titleColor: #494949;
+$bodyColor: #6f6f6f;
+$cardColor: #FAFAFA;
+
+%displayFont {
+  font-family: 'SFUIDisplay-Medium', 'Helvetica', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: $red;
+}
+
+%sectionFont {
+  font-family: 'SFUIDisplay-Semibold', 'Helvetica', sans-serif;
+  font-size: 20px;
+  color: $sectionColor;
+}
+
+%titleFont {
+  font-family: 'SFUIDisplay-Semibold', 'Helvetica', sans-serif;
+  font-size: 17px;
+  color: $titleColor;
+  letter-spacing: 0.5px;
+}
+
+%bodyFont {
+  font-family: 'SFUIText-Normal', 'Helvetica', sans-serif;
+  font-size: 13px;
+  color: $bodyColor;
+}
+
+%priceFont {
+  font-family: 'SFUIDisplay-Bold', 'Helvetica', sans-serif;
+  font-size: 13px;
+  color: $titleColor;
+}
+
+%tags {
+  @extend %priceFont;
+  font-family: 'SFUIDisplay-Regular', 'Helvetica', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: $red;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.App {
+  background-color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.transparent {
+  opacity: 0;
+  transition: .1s ease-in-out;
+}
+
+.red {
+  background-color: $red;
+}
+
+.lockScroll {
+  overflow: hidden;
+}
+
+.slideOutLeft {
+  -webkit-transform: translateX(0%);
+  -webkit-animation: slideOutLeft .2s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideOutLeft {
+  100%   { -webkit-transform: translateX(-100%) }
+}
+
+.slideInLeft {
+  -webkit-transform: translateX(-100%);
+  -webkit-animation: slideInLeft .2s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideInLeft {
+  100%   { -webkit-transform: translateX(0%) }
+}
+
+.slideOutRight {
+  -webkit-transform: translateX(0%);
+  -webkit-animation: slideOutRight .2s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideOutRight {
+  100%   { -webkit-transform: translateX(100%) }
+}
+
+.slideInRight {
+  -webkit-transform: translateX(100%);
+  -webkit-animation: slideInRight .2s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideInRight {
+  100%   { -webkit-transform: translateX(0%) }
+}
+
+.venue {
+  @extend %displayFont;
+}
+
+header {
+  height: 65px;
+  width: 100vw;
+  max-width: 768px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 5;
+  padding: 15px;
+  transition: .4s ease-in-out all;
+  // box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.19);
+}
+
+.menuOpen {
+  margin-top: 0;
+  transform-origin: top;
+  color: white;
+  background-color: $red;
+  height: 100vh;
+  z-index: 5;
+}
+
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+// ul
+.links {
+  @extend %sectionFont;
+  color: white;
+  list-style: none;
+  position: fixed;
+  z-index: 5;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  top: 0px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  a:focus {
+    outline: none;
+  }
+
+  li {
+    padding: 10px 0;
+    letter-spacing: 0.5px;
+
+    img {
+      height: 75px;
+      margin: 20px 0;
+    }
+  }
+  -webkit-animation: fadeIn 2s;
+  }
+
+  @-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100%   { opacity: 1; }
+  }
+
+.placeholder {
+  width: 40px;
+}
+
+.section {
+  @extend %sectionFont;
+  padding: 60px 15px 15px 15px;
+  background-color: white;
+}
+
+.title {
+  @extend %titleFont;
+  padding: 21px 14px;
+}
+
+.bodyText {
+  @extend %bodyFont;
+  padding: 0 14px;
+}
+
+.price {
+  @extend %priceFont;
+}
+
+.tags {
+  @extend %tags;
+}
+
+.info {
+  padding: 21px 14px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuItem {
+  display: grid;
+  height: 50vw;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1px 1px;
+  grid-template-areas: "leftBox rightBox";
+  background-color: $cardColor;
+}
+
+.leftBox {
+  grid-area: leftBox;
+  position: relative;
+}
+
+.rightBox {
+  grid-area: rightBox;
+  position: relative;
+}
+
+.previewModal {
+  background-color: $cardColor;
+  height: 100vh;
+  position: fixed;
+  top: 65px;
+  z-index: 4;
+
+  .previewImage {
+    width: 100vw;
+    height: 100vw;
+  }
+
+  .previewName {
+    font-family: 'SFUIDisplay-Semibold', 'Helvetica', sans-serif;;
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: $titleColor;
+    padding: 20px;
+  }
+
+  .previewDescription {
+    font-family: 'SFUIText-Regular', 'Helvetica', sans-serif;;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+    color: #6f6f6f;
+    padding: 20px;
+    padding-top: 0;
+  }
+
+  .previewDetails {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100vw;
+    bottom: 65px;
+    padding: 20px;
+  }
+
+  .previewPrice {
+    font-family: 'SFUIDisplay-Bold', 'Helvetica', sans-serif;;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: $titleColor;
+  }
+
+  .previewTags {
+    font-family: 'SFUIText-Regular', 'Helvetica', sans-serif;;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: right;
+    color: $titleColor;
+  }
+}
+
+.cta {
+  height: 440px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 22px 0;
+  text-align: center;
+  background-color: white;
+
+  .mryum {
+    width: 100px;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    color: $red;
+    margin: 10px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    color: $bodyColor;
+    font-family: 'SFUIText-Medium', 'Helvetica', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 10px 0;
+  }
+
+  .preRegister {
+    font-family: 'SFUIText-Semibold', 'Helvetica', sans-serif;
+    color: $titleColor;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  // input {
+  //   width: 335px;
+  //   height: 55px;
+  //   border-radius: 25px;
+  //   border: solid 2px $red;
+  //   padding: 20px;
+  //   font-family: 'SFUIDisplay', 'Helvetica', sans-serif;
+  //   font-size: 14px;
+  //   font-weight: 500;
+  //   font-style: normal;
+  //   font-stretch: normal;
+  //   line-height: normal;
+  //   letter-spacing: 0.5px;
+  //   text-align: left;
+  //   color: $red;
+  //   transition: 0.2s ease all;
+  // }
+  //
+  // input:focus {
+  //   outline: none;
+  // }
+  //
+  // ::placeholder {
+  //   font-family: 'SFUIDisplay', 'Helvetica', sans-serif;
+  //   font-size: 14px;
+  //   font-weight: 500;
+  //   font-style: normal;
+  //   font-stretch: normal;
+  //   line-height: normal;
+  //   letter-spacing: 0.5px;
+  //   text-align: left;
+  //   color: $red;
+  // }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 57px;
+  font-family: 'SFUIText', 'Helvetica', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: white;
+  background-color: $red;
+}
+
+// notify me button
+$bg: #FF7B73;
+$fg: #FF7B73;
+
+::-webkit-input-placeholder {
+  color: $red;
+}
+
+// Dribbble related code
+.ctaBtn {
+	background: white;
+  color: $red;
+  border: 2px solid $red;
+	font-weight: bold;
+	border-radius: 25px;
+	line-height: 50px;
+	height: 50px;
+	width: 170px;
+	text-align: center;
+	transition: width .2s ease-in-out;
+	cursor: pointer;
+
+  .hide {
+    display: none;
+  }
+
+  form {
+    display: flex;
+    margin-top: -2px;
+  } // I know, I know.
+
+  span {
+		opacity: 0;
+		width: 100%;
+		text-align: center;
+		animation: fadeBtnIn .3s ease-in-out;
+		animation-delay: .2s;
+		animation-fill-mode: forwards;
+	}
+
+	.input {
+		display: none;
+		opacity: 0;
+		flex: 3;
+		text-align: left;
+
+  	input {
+      font-size: 14px;
+			border: 0;
+			width: 240px;
+			// height: 45px;
+			margin: 16px 0 0 25px;
+			outline: none;
+			color: $red;
+		}
+	}
+
+	.button {
+		display: none;
+		opacity: 0;
+		flex: 1;
+
+    button {
+      font-size: 14px;
+      font-weight: bold;
+			outline: none;
+			float: right;
+			padding: 0 15px;
+			height: 40px;
+			background: $red;
+			border-radius: 25px;
+			color: white;
+			border: 0;
+			margin: 5px 3px 5px 5px;
+			cursor: pointer;
+			transition: all .2s ease-in-out;
+
+      &:disabled{
+        opacity: .7;
+        color: white;
+      }
+		}
+	}
+
+	&.sent {
+    cursor: default;
+  }
+
+  &.active {
+		width: 350px;
+		text-align: left;
+		transition: width .2s ease-in-out;
+		cursor: default;
+
+    span {
+      display: none;
+    }
+
+		.input, .button {
+			display: block;
+			animation: fadeBtnIn .3s ease-in-out;
+			animation-delay: .1s;
+			animation-fill-mode: forwards;
+		}
+	}
+}
+
+// Fade + slight zoom
+@keyframes fadeBtnIn {
+	0% { opacity: 0; transform: scale(.7); }
+	100% { opacity: 1; transform: scale(1); }
+}
